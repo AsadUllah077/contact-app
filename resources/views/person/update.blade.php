@@ -54,8 +54,23 @@
                                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
-                        </div>
 
+
+                        <div class="sm:col-span-3">
+                            <label class="block text-sm font-medium text-gray-700">Business</label>
+                            <select name="business_id"
+                                class=" block w-full rounded-md border @error('business_id') border-red-500 @else border-gray-300 @enderror"
+                                id="">
+                                <option value="">NO Business</option>
+                                @foreach ($businesses as $business)
+                                    <option value="{{ $business->id }}" @selected($business->id == old('business_id', $person->business_id))>{{ $business->business_name }}</option>
+                                @endforeach
+                            </select>
+                            @error('phone')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
                         <div class="flex justify-end items-center mt-3 gap-4">
                             <a href="{{route('person.index')}}">Cancel</a>
                             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">

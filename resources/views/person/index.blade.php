@@ -19,6 +19,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Business</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -27,6 +28,7 @@
                                     <td>{{ $person->firstname }}</td>
                                     <td>{{ $person->email }}</td>
                                     <td>{{ $person->phone }}</td>
+                                    <td>{{ $person->business?->business_name }}</td>
                                     <td class="flex
                                     ">
                                     <a href="{{route('person.edit', $person->id)}}"><svg

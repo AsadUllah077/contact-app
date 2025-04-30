@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buiness;
 use App\Models\Person;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,7 +14,8 @@ class PersonController extends Controller
      */
     public function index()
     {
-        return view('person.index')->with('people', Person::get());
+        // dd(Person::get());
+        return view('person.index')->with('people', Person::all());
     }
 
     /**
@@ -21,7 +23,8 @@ class PersonController extends Controller
      */
     public function create()
     {
-        return view('person.create');
+        $businesses = Buiness::get();
+        return view('person.create', compact('businesses' ));
     }
 
     /**
@@ -29,7 +32,7 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        // dd("fsfsfsdf");
+        // dd($request->business_id);
         $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
@@ -39,6 +42,7 @@ class PersonController extends Controller
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'phone' => $request->phone,
+            'business_id' => $request->business_id,
             'email' => $request->email,
         ]);
         return redirect(route('person.index'));
@@ -57,8 +61,9 @@ class PersonController extends Controller
      */
     public function edit(Person $person)
     {
+        $businesses = Buiness::get();
         // $person = Person::find($person);
-        return view('person.update')->with('person', $person);
+        return view('person.update',compact('businesses'))->with('person', $person);
     }
 
     /**
@@ -75,6 +80,7 @@ class PersonController extends Controller
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'phone' => $request->phone,
+            'business_id' => $request->business_id,
             'email' => $request->email,
         ]);
         return redirect(route('person.index'));

@@ -11,4 +11,10 @@ class Buiness extends Model
     /** @use HasFactory<\Database\Factories\BuinessFactory> */
     use HasFactory, SoftDeletes;
     protected $fillable = ['business_name', 'contact_email'];
+
+    public function people(): HasMany
+    {
+        return $this->hasMany(Person::class);
+    }
+
 }

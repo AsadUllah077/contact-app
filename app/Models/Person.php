@@ -10,5 +10,9 @@ class Person extends Model
 {
     /** @use HasFactory<\Database\Factories\PersonFactory> */
     use HasFactory, SoftDeletes;
-    protected $fillable =['firstname', 'lastname', 'phone', 'email'];
+    protected $with = ['business'];
+    protected $fillable =['firstname', 'lastname', 'phone', 'email','business_id'];
+    public function business(){
+        return $this->belongsTo(Buiness::class);
+    }
 }
