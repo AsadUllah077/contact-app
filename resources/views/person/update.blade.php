@@ -56,7 +56,8 @@
                             </div>
                         </div>
 
-                        <div class="flex justify-end items-center mt-3">
+                        <div class="flex justify-end items-center mt-3 gap-4">
+                            <a href="{{route('person.index')}}">Cancel</a>
                             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
                                 Update Person
                             </button>

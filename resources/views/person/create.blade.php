@@ -54,8 +54,9 @@
                             </div>
                         </div>
 
-                        <div class="flex justify-end items-center mt-3">
-                            <button type="submit"  class="bg-blue-300 text-white px-3 py-2 rounded-full" >Add Person</button>
+                        <div class="flex justify-end items-center mt-3 gap-4">
+                            <a href="{{route('person.index')}}">Cancel</a>
+                            <button type="submit"  class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-full" >Add Person</button>
                         </div>
                     </form>
 

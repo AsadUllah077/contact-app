@@ -11,7 +11,7 @@
 
                 <div class="p-6 text-gray-900">
                     <div class="flex justify-end items-center ">
-                        <a class="bg-blue-300 text-white px-3 py-2 rounded-full" href="{{ route('person.create') }}">Add
+                        <a class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-full" href="{{ route('person.create') }}">Add
                             Person</a>
                     </div>
                     <table class="table-fixed border-separate border-spacing-6">
