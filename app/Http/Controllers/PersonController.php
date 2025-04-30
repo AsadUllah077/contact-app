@@ -13,7 +13,7 @@ class PersonController extends Controller
      */
     public function index()
     {
-       return view('person.index')->with('people', Person::get());
+        return view('person.index')->with('people', Person::get());
     }
 
     /**
@@ -21,7 +21,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        //
+        return view('person.create');
     }
 
     /**
@@ -29,7 +29,19 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd("fsfsfsdf");
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'nullable | email'
+        ]);
+        Person::create([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'phone' => $request->phone,
+            'email' => $request->email,
+        ]);
+        return redirect(route('person.index'));
     }
 
     /**
@@ -45,7 +57,8 @@ class PersonController extends Controller
      */
     public function edit(Person $person)
     {
-        //
+        // $person = Person::find($person);
+        return view('person.update')->with('person', $person);
     }
 
     /**
@@ -53,7 +66,18 @@ class PersonController extends Controller
      */
     public function update(Request $request, Person $person)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'nullable | email'
+        ]);
+        $person->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'phone' => $request->phone,
+            'email' => $request->email,
+        ]);
+        return redirect(route('person.index'));
     }
 
     /**
@@ -61,6 +85,7 @@ class PersonController extends Controller
      */
     public function destroy(Person $person)
     {
-        //
+        $person->delete();
+        return redirect(route('person.index'));
     }
 }

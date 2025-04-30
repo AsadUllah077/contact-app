@@ -10,4 +10,5 @@ class Person extends Model
 {
     /** @use HasFactory<\Database\Factories\PersonFactory> */
     use HasFactory, SoftDeletes;
+    protected $fillable =['firstname', 'lastname', 'phone', 'email'];
 }
