@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BusinessRequest;
 use App\Models\Buiness;
 use Illuminate\Http\Request;
 
@@ -16,11 +17,8 @@ class BusinessController extends Controller
         return view('business.create');
     }
 
-    public function store(Request $request){
-        $request->validate([
-            'contact_email' => 'nullable | email',
-            'business_name' => 'nullable'
-        ]);
+    public function store(BusinessRequest $request){
+        $request->validated();
 
         Buiness::create([
             'contact_email' => $request->contact_email,
@@ -34,13 +32,9 @@ class BusinessController extends Controller
         return view('business.edit', compact('business'));
     }
 
-    public function update(Request $request, Buiness $business){
+    public function update(BusinessRequest $request, Buiness $business){
         // dd($business);
-        $request->validate([
-            'contact_email' => 'nullable | email',
-            'business_name' => 'nullable'
-        ]);
-
+        $request->validated();
         $business->update([
             'contact_email' => $request->contact_email,
             'business_name' => $request->business_name,
