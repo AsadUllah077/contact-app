@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class BusinessController extends Controller
 {
-    public function inddex(){
+    public function index(){
         $businesses = Buiness::all();
         return view('business.index', compact('businesses'));
     }
@@ -30,25 +30,26 @@ class BusinessController extends Controller
         return to_route('business.index');
     }
 
-    public function edit(Buiness $buiness){
+    public function edit(Buiness $business){
         return view('business.edit', compact('business'));
     }
 
-    public function update(Request $request, Buiness $buiness){
+    public function update(Request $request, Buiness $business){
+        // dd($business);
         $request->validate([
             'contact_email' => 'nullable | email',
             'business_name' => 'nullable'
         ]);
 
-        $buiness->update([
+        $business->update([
             'contact_email' => $request->contact_email,
             'business_name' => $request->business_name,
         ]);
         return to_route('business.index');
     }
 
-    public function destroy(Buiness $buiness){
-        $buiness->delete();
+    public function destroy(Buiness $business){
+        $business->delete();
         return to_route('business.index');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +27,14 @@ Route::controller(PersonController::class)->prefix('person')->name('person.')->m
    Route::put('/{person}/edit', 'update')->name('update');
    Route::get('/{person}/destroy', 'destroy')->name('destroy');
 });
+
+Route::controller(BusinessController::class)->prefix('business')->name('business.')->middleware('auth')->group(function(){
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/create', 'store')->name('store');
+    Route::get('/{business}/edit', 'edit')->name('edit');
+    Route::put('/{business}/edit', 'update')->name('update');
+    Route::get('/{business}/destroy', 'destroy')->name('destroy');
+ });
 
 require __DIR__.'/auth.php';
