@@ -10,6 +10,7 @@ class BusinessController extends Controller
 {
     public function index(){
         $businesses = Buiness::all();
+        // dd($businesses);
         return view('business.index', compact('businesses'));
     }
 

@@ -18,6 +18,7 @@
                         <thead>
                             <th>Business Name</th>
                             <th>Contact Email</th>
+                            <th>Categories</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -25,6 +26,11 @@
                                 <tr>
                                     <td>{{ $business->business_name }}</td>
                                     <td>{{ $business->contact_email }}</td>
+                                    <td>
+                                        @foreach ($business->categories as $business_cat)
+                                        {{$business_cat?->category_name}},
+                                        @endforeach
+                                    </td>
                                     <td class="flex
                                     ">
                                     <a href="{{route('business.edit', $business->id)}}"><svg

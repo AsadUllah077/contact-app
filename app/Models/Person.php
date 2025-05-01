@@ -13,6 +13,6 @@ class Person extends Model
     protected $with = ['business'];
     protected $fillable =['firstname', 'lastname', 'phone', 'email','business_id'];
     public function business(){
-        return $this->belongsTo(Buiness::class);
+        return $this->belongsTo(Buiness::class)->withTrashed();
     }
 }
