@@ -47,4 +47,8 @@ class BusinessController extends Controller
         $business->delete();
         return to_route('business.index');
     }
+
+    public function show(Buiness $business){
+        return view('business.details', compact('business'));
+    }
 }

@@ -24,6 +24,7 @@ Route::controller(PersonController::class)->prefix('person')->name('person.')->m
    Route::get('/create', 'create')->name('create');
    Route::post('/create', 'store')->name('store');
    Route::get('/{person}/edit', 'edit')->name('edit');
+   Route::get('/{person}/show', 'show')->name('show');
    Route::put('/{person}/edit', 'update')->name('update');
    Route::get('/{person}/destroy', 'destroy')->name('destroy');
 });
@@ -33,6 +34,7 @@ Route::controller(BusinessController::class)->prefix('business')->name('business
     Route::get('/create', 'create')->name('create');
     Route::post('/create', 'store')->name('store');
     Route::get('/{business}/edit', 'edit')->name('edit');
+    Route::get('/{business}/show', 'show')->name('show');
     Route::put('/{business}/edit', 'update')->name('update');
     Route::get('/{business}/destroy', 'destroy')->name('destroy');
  });

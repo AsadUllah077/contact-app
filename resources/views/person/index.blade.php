@@ -25,7 +25,7 @@
                         <tbody>
                             @foreach ($people as $person)
                                 <tr>
-                                    <td>{{ $person->firstname }}</td>
+                                    <td><a href="{{route('person.show', $person->id)}}">{{ $person->firstname }}</a></td>
                                     <td>{{ $person->email }}</td>
                                     <td>{{ $person->phone }}</td>
                                     <td class="{{($person->business?->deleted_at?'italic' : 'non-italic')}}">{{ $person->business?->business_name }}</td>
