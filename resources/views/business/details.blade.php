@@ -17,10 +17,18 @@
                         <thead>
                             <th>Business Name</th>
                             <th>Contact Email</th>
+                            <th>Tasks</th>
                         </thead>
                         <tbody>
                            <td>{{$business->business_name}}</td>
                            <td>{{$business->contact_email}}</td>
+                           <td>
+                            @foreach ($business?->tasks as $per)
+                            <h4 class="font-semibold">{{ $per->title }}</h4>
+                            <br>
+                            <p>{{ $per->description }}</p>
+                            @endforeach
+                        </td>
                         </tbody>
                     </table>
                 </div>

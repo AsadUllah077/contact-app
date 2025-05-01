@@ -15,4 +15,7 @@ class Person extends Model
     public function business(){
         return $this->belongsTo(Buiness::class)->withTrashed();
     }
+    public function tasks(){
+        return $this->morphMany(Task::class, 'taskable');
+    }
 }

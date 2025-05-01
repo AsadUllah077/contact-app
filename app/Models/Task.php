@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 // use Illuminate\Database\Eloquent\SoftDelete;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Tag extends Model
+class Task extends Model
 {
     //
     use SoftDeletes;
+    public function taskable(){
+       return $this->morphTo();
+    }
 }

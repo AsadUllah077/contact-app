@@ -19,14 +19,23 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Business</th>
+                            <th>Tasks</th>
                         </thead>
                         <tbody>
                             <td>{{ $person->firstname }}</td>
                             <td>{{ $person->email }}</td>
                             <td>{{ $person->phone }}</td>
                             <td class="{{($person->business?->deleted_at?'italic' : 'non-italic')}}">{{ $person->business?->business_name }}</td>
+                            <td>
+                                @foreach ($person?->tasks as $per)
+                                <h4 class="font-semibold">{{ $per->title }}</h4>
+                                <br>
+                                <p>{{ $per->description }}</p>
+                                @endforeach
+                            </td>
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
