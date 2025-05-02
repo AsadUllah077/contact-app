@@ -18,4 +18,8 @@ class Person extends Model
     public function tasks(){
         return $this->morphMany(Task::class, 'taskable');
     }
+
+    public function tags(){
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

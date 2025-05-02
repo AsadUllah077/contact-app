@@ -19,6 +19,7 @@
                             <th>Business Name</th>
                             <th>Contact Email</th>
                             <th>Categories</th>
+                            <th>Tags</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -29,6 +30,14 @@
                                     <td>
                                         @foreach ($business->categories as $business_cat)
                                         {{$business_cat?->category_name}},
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach ($business
+
+
+                                        ->tags as $tag)
+                                        {{$tag->tag_name}},
                                         @endforeach
                                     </td>
                                     <td class="flex

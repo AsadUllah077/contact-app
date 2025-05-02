@@ -20,6 +20,7 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Business</th>
+                            <th>Tags</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -28,7 +29,13 @@
                                     <td><a href="{{route('person.show', $person->id)}}">{{ $person->firstname }}</a></td>
                                     <td>{{ $person->email }}</td>
                                     <td>{{ $person->phone }}</td>
+
                                     <td class="{{($person->business?->deleted_at?'italic' : 'non-italic')}}">{{ $person->business?->business_name }}</td>
+                                    <td>
+                                        @foreach ($person->tags as $tag)
+                                        {{$tag->tag_name}},
+                                        @endforeach
+                                    </td>
                                     <td class="flex
                                     ">
                                     <a href="{{route('person.edit', $person->id)}}"><svg
