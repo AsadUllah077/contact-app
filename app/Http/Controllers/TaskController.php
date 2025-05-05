@@ -31,4 +31,15 @@ class TaskController extends Controller
 
        return to_route('task.index');
     }
+
+    public function update( $task)
+    {
+        $task = Task::findOrFail($task);
+
+        $task->status = ($task->status === 'complete') ? 'start' : 'complete';
+        $task->save();
+
+        return back()->with('success', 'Task status updated successfully.');
+    }
+
 }

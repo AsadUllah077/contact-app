@@ -44,9 +44,9 @@ Route::controller(BusinessController::class)->prefix('business')->name('business
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
     Route::post('/create', 'store')->name('store');
-    Route::get('/{task}/edit', 'edit')->name('edit');
+    Route::get('/{task}/edit', 'update')->name('edit');
     Route::get('/{task}/show', 'show')->name('show');
-    Route::put('/{task}/edit', 'update')->name('update');
+    // Route::put('/{task}/edit', 'update')->name('update');
     Route::get('/{task}/destroy', 'destroy')->name('destroy');
  });
 

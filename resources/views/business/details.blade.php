@@ -59,7 +59,8 @@
                                     <div class="mb-4 border p-4 rounded shadow-sm">
                                         <h4 class="font-semibold text-blue-700">{{ $task->title }}</h4>
                                         <p class="text-gray-600">{{ $task->description }}</p>
-                                        <button class="text-gray-600 py-2 px-3 hover:bg-blue-600 hover:text-white rounded-full bg-blue-300">{{ $task->status }}</button>
+                                        {{-- <button class="text-gray-600 py-2 px-3 hover:bg-blue-600 hover:text-white rounded-full bg-blue-300">{{ $task->status }}</button> --}}
+                                        <a class="text-gray-600 py-2 px-3 hover:bg-blue-600 hover:text-white rounded-full bg-blue-300" href="{{route('task.edit', $task->id)}}">{{ $task->status }}</a>
                                     </div>
                                 @empty
                                     <p class="text-gray-500">No tasks available.</p>
